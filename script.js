@@ -1,25 +1,31 @@
 let output = document.querySelector("#output");
+let buttons = document.querySelectorAll("button");
 let str = '';
 
-document.querySelector("button").click(function() {
-  switch (this.innerHTML) {
-    case 'CE':
-      str = '';
-      break;
-    case '=':
-      str = result(str);
-      break;
-    default:
-      str += this.innerHTML
-      break;
-  }
-  output.innerHTML = str;
+buttons.forEach(button => {
+  button.addEventListener("click", function() {
+    switch (this.innerHTML) {
+      case 'CE':
+        str = '';
+        break;
+      case '=':
+        str = result(str);
+        break;
+      default:
+        str += this.innerHTML;
+        break;
+    }
+    output.innerHTML = str;
+  });
 });
 
 function result(str) {
-  if (str != '') {
-    //https://stackoverflow.com/questions/6479236/calculate-string-value-in-javascript-not-using-eval
-    return Math.round(eval(str)*1000)/1000;
+  if (str !== '') {
+    try {
+      return Math.round(Function(`'use strict'; return (${str})`)() * 1000) / 1000;
+    } catch (error) {
+      return 'Error';
+    }
   }
   return 0;
 }
