@@ -1,7 +1,4 @@
-let banner = $("#banner-message")
-let button = $("button")
-
-let output = document.getElementById('output');
+let output = $("#output");
 let str = '';
 
 $("button").click(function() {
