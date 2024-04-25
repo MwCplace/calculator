@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: 900;
+  font-size: 1.2rem;
+  font-family: Helvetica, sans-serif;
+  color: deeppink;
+}
+
+.container {
+  padding: 2rem;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  width: 12rem;
+}
+
+#output {
+  height: 2rem;
+  width: 12rem;
+  background: pink;
+  padding: 2rem;
+}
+
+#buttons {
+  display: grid;
+  grid-template-columns: 4rem 4rem 4rem 4rem;
+  background: deeppink;
+  width: 16rem;
+}
+
+#buttons button {
+  background: deeppink;
+  color: beige;
+  padding: 1em;
+  /* border: 0.1rem solid white; */
+  border: none;
+  border-radius: 50px;
+  height: 4rem;
+  
+}
+
+#buttons button:hover {
+  background: orange;
+  /* background: radial-gradient(#ff6ab0, deeppink); */
+  background: radial-gradient(deeppink, #ff6ab0);
+}
+
+#buttons button:active  {
+  background: #ff6ab0;
+  /* background: radial-gradient(#ff6ab0, deeppink); */
+  /* background: radial-gradient(deeppink, #ff6ab0); */
+}
+
+@media only screen and (max-width: 430px) {
+  * {
+    font-size: 0.9rem;
+  }
+  
+  #buttons button {
+    padding: 0.9rem;
+  }
+  
+  .container {
+    padding-right: 2rem;
+  }
+}
+
+@media only screen and (min-width: 632px) {
+  #output {
+    width: 100%;
+    order: 2;
+    height: 20rem;
+  }
+  .container {
+    padding-left: 2rem;
+    width: 90%;
+    flex-direction: row;
+  }
+}
+
